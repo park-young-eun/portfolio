@@ -1,0 +1,519 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@font-face {
+    font-family: 'Koreageulggol';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/naverfont_07@1.0/Koreageulggol.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*{margin: 0; padding: 0;}
+ul{margin: 0; padding: 0;}
+li{list-style: none;}
+a{display: block; text-decoration: none; color: #212121;}
+html,body{font-family: 'Noto Sans KR', sans-serif; height: 100%; overflow-x: hidden;}
+img{width: 100%;}
+header, section, footer{width: 100%; float: left;box-sizing: border-box;}
+div, ul ,li{box-sizing: border-box;}
+
+/* fullpage의 navigation 스타일 지정 */
+#fp-nav ul li a{
+    width: 10px;
+    height: 10px;
+    background-color: transparent;
+    margin: -5px 0 0 -5px;
+}
+#fp-nav ul li a.active span{
+    width: 10px;
+    height: 10px;
+    background-color: #80d4f6;
+    margin: -5px 0 0 -5px;
+}
+#fp-nav ul li a.active span{background-color: #80d4f6;}
+#fp-nav ul li .fp-tooltip{color: #80d4f6;}
+
+/* 맨처음 인트로에서는 navigation안보임 */
+.fp-viewing-0 #fp-nav{
+    display: none;
+}
+
+header{position: absolute; z-index: 1;}
+header .menu{
+    width: 20vw;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+header nav{width: 35vw; margin-top: 0.5vw;}
+header nav>ul{
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row nowrap;
+}
+header nav>ul>li{
+    position: relative;
+}
+header nav ul li a{
+    color: #80d4f6;
+    background-color: #fff;
+    font-size: 0.8vw;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 400;
+    margin-top: 0.5vw;
+    padding: 0.3vw 0.5vw;
+    border-radius: 10px;
+    position: relative;
+}
+header .menu_btn{
+    width: 2.5vw;
+    height: 2.5vw;
+    padding: 1vw 0;
+    margin: 0vw 1vw;
+    float: left;
+    cursor: pointer;
+}
+
+/* .s1{
+    overflow-Y: hidden;
+} */
+.main {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    background: #ffda8e;
+}
+
+.wave{position: absolute;}
+.wave-container div>img{
+    width: 2000px;
+}
+.wave_blue{
+    transform: translateY(10vw);
+}
+.wave_light{
+    transform: translateY(8vw);
+}
+.wave_shadow {
+    transform: translateY(10vw);
+}
+.wave_blue.active{
+    animation: wave 5s;}
+.wave_light.active{
+    animation: wave1 5s;}
+.wave_shadow.active{
+    animation: wave2 5s;}
+
+
+@keyframes wave {
+    0%{transform: translateY(10vw);}
+    20%{transform: translateY(40vw);}
+    50%{transform: translateY(20vw);}
+    70%{transform: translateY(40vw);}
+    100%{transform: translateY(10vw);}
+}
+@keyframes wave1 {
+    0%{transform: translateY(8vw);}
+    20%{transform: translateY(35vw);}
+    50%{transform: translateY(18vw);}
+    70%{transform: translateY(35vw);}
+    100%{transform: translateY(8vw);}
+}
+@keyframes wave2 {
+    0%{transform: translateY(10vw); opacity: 1;}
+    20%{transform: translateY(10vw);opacity: 0;}
+    30%{transform: translateY(40vw); opacity: 0;}
+    50%{transform: translateY(20vw); opacity: 1;}
+    100%{transform: translateY(20vw); opacity: 0;}
+}
+
+/* wave_txt 시작 */
+.wave_txt{
+    position: absolute;
+    width: 35%;
+    top: 45%;
+    left: 32%;
+}
+.textAnimation {
+    width:40vw;
+    z-index: 7;
+    margin:0 auto;
+    position: absolute;
+}
+.animate {
+    fill:none;
+    stroke:#fff;   
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+}
+.animate.active{
+    animation:textAni 0.5s  5.5s linear forwards;   /*0.5s : 속도 조절*/
+}
+/* 원래 .active 없고 다 같이 써있던건데, 일단 나눴어요. 맞는지는 모르겠지만,., js도 고쳤어요 */
+.ani1.active {
+    animation-delay: 6.5s;
+} 
+.ani2.active {
+    animation-delay: 7s;
+}
+.ani3.active {
+    animation-delay: 7.3s;
+}
+.ani4.active {
+    animation-delay: 7.6s;
+}
+.ani5.active {
+    animation-delay: 8s;
+}
+.ani6.active {
+    animation-delay: 8.3s;
+}
+.ani7.active {
+    animation-delay: 8.4s;
+}
+@keyframes textAni {
+    from {
+        stroke-dashoffset: 1000;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+/* z-index는 같은 형제일때, 둘다 position값과 z-index를 줘야 됨 숫자가 높을수록 앞으로 나옴 */
+.wave_txt .wave_font{
+    opacity: 0;
+    transition: all 1s;
+    transition-delay: 5s;
+    position: relative;
+    z-index:5;
+}
+.wave_txt .wave_font.active {
+    opacity: 0.5;
+}
+
+/* s2시작 */
+.s2{
+    overflow: hidden;
+}
+.s2_txt p{
+    position: absolute;
+    color: #80d4f6;
+    top: 4vw;
+    left: 45%;
+    font-weight: 700;
+    font-size: 2vw;
+    z-index: 25;
+}
+.swiper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 20;
+    margin-top: 2vw;
+  }
+  .swiper-slide>span{
+    position: relative;
+    z-index: 7;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+
+  .swiper-slide img {
+    display: block;
+    padding: 2vw;
+    width: 70%;
+    height: 63%;
+    position: relative;
+    z-index: 2;
+  }
+  .slide03 img {
+    width: 70%;
+    height: 53%;
+    margin-top: -4vw;
+  }
+
+  .swiper-slide>a{
+    position: absolute;
+    top: 35vw;
+    right: 30vw;
+  }
+  .swiper-slide>a img{padding: 0;}
+  .swiper-slide .slide_02_main{
+      right: 30.5vw;
+    }
+    .swiper-slide .slide_03_main{
+        top: 39vw;
+    }
+  .swiper-slide .slide_04_sub,.swiper-slide .slide_05_sub{
+      right: 21.5vw;
+    }
+    .swiper-slide .slide_02_sub{
+    right: 22vw;
+    }
+
+/* 슬라이드 파도 시작*/
+.slide_wave{
+position: absolute;
+bottom: -5px;
+right: 0;
+z-index: 5;
+overflow: hidden;
+animation: slide_wave 5s infinite ease-out;
+}
+
+@keyframes slide_wave {
+    0%{transform: translateX(0vw);}
+    50%{transform: translateX(5vw);}
+    100%{transform: translateX(0vw);}
+}
+
+/* s3 시작 & popup gallery 시작!~ */
+#s3{
+    width: 100%;
+    height: 100%;
+    background: #ffda8e;
+}
+.gallery{
+    width: 100%;
+    height: 100%;
+}
+.gallery .gall_title{
+    width: 100%;
+    margin-top: 7vw;
+}
+.gallery .gall_title img{
+    width: 23vw;
+    display: block;
+    margin: 0 auto;
+}
+.gallery .gall_area{
+    width: 90%;
+    margin: 0 auto;
+}
+.gallery .gall_area ul{
+    width: 100%;
+    height: 100%;
+    margin-top: 2vw;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+.gallery .gall_area ul li{
+    margin: 0.5vw;
+    display: block;
+}
+
+.gallery .gall_area>ul>li:nth-child(5){
+    position: absolute;
+    top: 26.2vw;
+    right: 51vw;
+}
+.gallery .gall_area>ul>li:nth-child(6){
+    position: absolute;
+    top: 22.8vw;
+    right: 29vw;
+}
+.gallery .gall_area ul li:nth-child(4) a img{
+    width: 23vw;
+}
+.gallery .gall_area ul li a img{
+    width: 21vw;
+}
+.gallery .gall_area h5{
+    position: absolute;
+    top: 38.5vw;
+    left: 14.5vw;
+    font-weight:700;
+    font-size: 1vw;
+    color: #ae780c;
+}
+/* gall_wave 시작 */
+.gallery .gall_wave{
+    width: 100%;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+/*popup*/
+.popup {
+    position: absolute;
+    display: none;
+    width:100%;
+    height:100%;
+    left:50%;
+    top:50%;
+    transform:translateX(-50%) translateY(-50%);
+    background:rgba(0,0,0,0.8);
+    z-index:200;
+}
+.popup .popup-container {
+    width:80%;
+    height:80%;
+    position: relative;
+}
+.popup .popup-container img {
+    margin-top: 5vw;
+    margin-left: 10vw;
+    width:100%; /*원래 크기*/
+}
+
+/* 팝업 이미지의 gif이미지 삽입css-html구조엔없고, js로만 작업함 */
+.popup .popup-container .edit-img3-child{
+    position: absolute;
+    top: 6vw;
+    right: -5vw;
+    width: 50%;
+}
+.popup .popup-container .edit-img3-child ul{
+    display: flex;
+    flex-flow: row wrap;
+}
+.popup .popup-container .edit-img3-child ul li{
+    width: 40%;
+    padding: 0vw 2vw 0vw 2vw;
+}
+.popup .prev,
+.popup .next {
+    width:1.5vw;
+    height:62px;
+    position: absolute;
+    top:50%;
+    transform:translateY(-50%);
+}
+.popup .prev { left:5vw;}
+.popup .next { right:5vw;}
+.popup .close {
+    position: absolute;
+    width:2vw;
+    height:40px;
+    top:3vw;
+    right:5vw;
+}
+
+/* s4_warp 시작 */
+.s4_warp{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.s4_box{
+    width: 100%;
+    position: relative;
+    margin: 5vw;
+}
+.bubble_img{
+    position: absolute;
+    display: flex;
+}
+.bubble_img .bubble1{
+    margin: 12vw 2vw;
+    animation: bubble 3s infinite;
+}
+.bubble_img .bubble2{
+    margin: 2vw 29vw;
+    animation: bubble 4s infinite;
+}
+.bubble_img .bubble3{
+    margin: 4vw -28vw;
+    animation: bubble 5s infinite;
+}
+@keyframes bubble {
+    0%{transform: translateY(0vw);}
+    50%{transform: translateY(2vw);}
+    100%{transform: translateY(0vw);}
+}
+
+.me_img{
+    display: flex;
+    width: 35vw;
+    margin: 3vw 6vw;
+}
+
+.s4_txt{
+    width: 50%;
+    margin: 4vw;
+}
+
+/* 이름부분 액션 */
+.wrapper {
+	width: 100%;
+	height: auto;
+    margin: 5vw 5vw 0vw -10vw;
+}
+
+.textOutput {
+	display: inline-block;
+	width: 100%;
+	height: auto;
+	text-align: center;
+	font-size: 2.5vw;
+	font-weight: 700;
+	letter-spacing: 0.5px;	
+}
+.textOutput span {
+    display: inline-block;
+    color: #489bbe;
+    transform-origin: bottom left;
+    padding-left: 40px;
+    margin-left: -40px;
+    transform: rotate(25deg) scale(.5);
+    opacity: 0;
+}
+.textOutput span.active{
+    animation: flingUp 3s 0.5s cubic-bezier(0.68, -0.6, 0.32, 1.6) forwards;
+}
+/* flingUp Animation */
+@keyframes flingUp {
+	from {
+		transform: rotate(25deg) scale(.5);
+		opacity: 0;
+	}
+	to {
+		transform: rotate(0deg) scale(1);
+		opacity: 1;
+	}
+}
+
+/* info_txt시작 */
+.info_txt{
+    width: 100%;
+    margin-left: -8vw;
+    /* position: absolute; */
+}
+.info_txt ul{
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+.info_txt ul li{
+    color: #489bbe;
+    width: 50%;
+    font-size: 1vw;
+    font-weight: 700;
+    margin-top: 5vw;
+}
+.info_txt ul li ul li{
+    width: 100%;
+    color: #6f6f6f;
+    font-weight: 500;
+    margin-top: 1vw;
+}
+
+
